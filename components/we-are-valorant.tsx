@@ -1,76 +1,51 @@
-import { ArrowRight } from "lucide-react";
-
 export function WeAreValorant() {
   return (
-    <section className="bg-[#ece8e1] py-24">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Text Content */}
-          <div className="order-2 lg:order-1">
-            <p className="mb-4 text-sm font-semibold tracking-[0.3em] text-[#ff4655]">
-              JOIN THE COMMUNITY
-            </p>
-            <h2 className="mb-6 text-4xl font-black uppercase leading-tight tracking-tight text-[#0f1923] md:text-5xl lg:text-6xl">
-              WE ARE
-              <br />
-              <span className="text-[#ff4655]">VALORANT</span>
+    <section 
+      className="relative z-10 pt-48 pb-32 bg-[#ece8e1] text-[#0f1923] overflow-hidden -mt-[60px]"
+      style={{
+        clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 80px), 85% calc(100% - 80px), 80% 100%, 0 100%)"
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h3 className="text-6xl md:text-8xl font-black uppercase tracking-tighter text-[#0f1923]">
+            We Are Valorant
+          </h3>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Graphic */}
+          <div className="relative w-full aspect-video flex items-center justify-center group overflow-hidden">
+             <div className="absolute inset-0 bg-[#ff4655]/10 group-hover:bg-transparent transition-colors z-10"></div>
+             <img 
+               src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop" 
+               alt="Killjoy Wall Placeholder" 
+               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+             />
+             <div className="absolute top-4 right-4 bg-[#ff4655] text-white text-[10px] font-bold tracking-widest px-3 py-1 uppercase z-20">
+                Gameplay
+             </div>
+          </div>
+
+          {/* Right Content */}
+          <div className="max-w-xl">
+            <h2 className="text-[#0f1923] font-bold tracking-[0.2em] text-sm mb-4 uppercase">
+              Defy The Limits
             </h2>
-            <p className="mb-6 text-lg leading-relaxed text-[#0f1923]/70">
-              Defy the limits. Challenge your potential. Join millions of
-              players worldwide in the ultimate tactical shooter experience.
+            
+            <p className="text-[#0f1923]/80 mb-6 font-medium leading-relaxed">
+              Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your side using sharp gunplay and tactical abilities.
             </p>
-            <p className="mb-8 text-lg leading-relaxed text-[#0f1923]/70">
-              Whether you&apos;re a seasoned veteran or just starting your journey,
-              there&apos;s a place for you in our community. Form teams, compete in
-              ranked matches, or enjoy casual games with friends.
+            <p className="text-[#0f1923]/80 mb-10 font-medium leading-relaxed">
+              And, with one life per-round, you'll need to think faster than your opponent if you want to survive. Take on foes across Competitive and Unranked modes as well as Deathmatch and Spike Rush.
             </p>
 
-            {/* Stats */}
-            <div className="mb-8 grid grid-cols-3 gap-8">
-              <div>
-                <p className="text-3xl font-black text-[#ff4655] md:text-4xl">
-                  25M+
-                </p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-[#0f1923]/60">
-                  Players
-                </p>
-              </div>
-              <div>
-                <p className="text-3xl font-black text-[#ff4655] md:text-4xl">
-                  190+
-                </p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-[#0f1923]/60">
-                  Countries
-                </p>
-              </div>
-              <div>
-                <p className="text-3xl font-black text-[#ff4655] md:text-4xl">
-                  24+
-                </p>
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-[#0f1923]/60">
-                  Agents
-                </p>
-              </div>
-            </div>
-
-            <button className="group flex items-center gap-2 bg-[#0f1923] px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-[#0f1923]/90 hover:scale-105">
-              JOIN THE FIGHT
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <button className="bg-[#ff4655] text-white px-8 py-4 font-bold tracking-wider text-sm hover:bg-[#0f1923] transition-colors inline-block">
+              LEARN THE GAME
             </button>
           </div>
 
-          {/* Image */}
-          <div className="order-1 lg:order-2">
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1614680376739-414d95ff43df?q=80&w=1974&auto=format&fit=crop"
-                alt="Valorant Gameplay"
-                className="w-full"
-              />
-              {/* Decorative Frame */}
-              <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full border-4 border-[#ff4655]" />
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -1,78 +1,48 @@
-import { ArrowRight } from "lucide-react";
-
-const maps = [
-  { name: "BIND", type: "STANDARD" },
-  { name: "HAVEN", type: "STANDARD" },
-  { name: "SPLIT", type: "STANDARD" },
-  { name: "ASCENT", type: "STANDARD" },
-  { name: "ICEBOX", type: "STANDARD" },
-];
-
 export function MapSection() {
   return (
-    <section className="bg-[#0f1923] py-24">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Map Image */}
-          <div className="relative">
-            <div className="relative overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=1974&auto=format&fit=crop"
-                alt="Valorant Map"
-                className="w-full"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0f1923]/40 to-transparent" />
-            </div>
-            {/* Decorative Frame */}
-            <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full border-4 border-[#2a3a47]" />
-          </div>
-
-          {/* Map Info */}
-          <div>
-            <p className="mb-4 text-sm font-semibold tracking-[0.3em] text-[#ff4655]">
-              TACTICAL BATTLEGROUNDS
+    <section 
+      className="relative z-10 pt-48 pb-40 bg-[#ece8e1] text-[#0f1923] -mt-[80px]"
+      style={{
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 55% 100%, 50% calc(100% - 60px), 0 calc(100% - 60px))"
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-16">
+          
+          {/* Left Content */}
+          <div className="w-full md:w-1/3">
+            <h3 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-6 leading-none">
+              Map
+            </h3>
+            <p className="text-[#0f1923] font-bold tracking-[0.2em] text-sm mb-4 uppercase">
+              Fight In All Parts Of The World
             </p>
-            <h2 className="mb-6 text-4xl font-black uppercase leading-tight tracking-tight text-[#ece8e1] md:text-5xl">
-              EXPLORE
-              <br />
-              THE <span className="text-[#ff4655]">MAPS</span>
-            </h2>
-            <p className="mb-8 text-lg leading-relaxed text-[#768079]">
-              Each map is a unique playground designed for team strategies and
-              creative plays. Learn the callouts, master the angles, and control
-              the battlefield.
+            <p className="text-[#0f1923]/80 text-sm mb-10 leading-relaxed font-medium">
+              Each map is a playground to showcase your creative thinking. Purpose-built for team strategies, spectacular plays, and clutch moments. Make the play others will imitate for years to come.
             </p>
 
-            {/* Map List */}
-            <div className="mb-8 space-y-3">
-              {maps.map((map, index) => (
-                <div
-                  key={map.name}
-                  className="group flex cursor-pointer items-center justify-between border-b border-[#2a3a47] pb-3 transition-colors hover:border-[#ff4655]"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm font-medium text-[#768079]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="text-lg font-bold tracking-wider text-[#ece8e1] transition-colors group-hover:text-[#ff4655]">
-                      {map.name}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-xs tracking-wider text-[#768079]">
-                      {map.type}
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-[#768079] opacity-0 transition-all group-hover:text-[#ff4655] group-hover:opacity-100" />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="group flex items-center gap-2 bg-[#ff4655] px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-[#ff4655]/90 hover:scale-105">
+            <button className="bg-[#ff4655] text-white px-8 py-4 font-bold tracking-wider text-sm hover:bg-[#0f1923] transition-colors inline-block mt-4">
               VIEW ALL MAPS
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>
+
+          {/* Right Image */}
+          <div className="w-full md:w-2/3 relative group flex justify-end">
+            {/* The image is angularly clipped in the design */}
+            <div 
+              className="relative aspect-video w-full max-w-2xl bg-black overflow-hidden shadow-2xl"
+              style={{
+                clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 20%)"
+              }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop" 
+                alt="Map Background Placeholder" 
+                className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -1,55 +1,50 @@
-import { Play } from "lucide-react";
-
 export function FeatureBanner() {
   return (
-    <section className="relative overflow-hidden bg-[#0f1923] py-24">
-      <div className="mx-auto max-w-7xl px-4 lg:px-8">
-        <div className="relative overflow-hidden">
-          {/* Background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1552820728-8b83bb6b2b0a?q=80&w=2070&auto=format&fit=crop')`,
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f1923] via-[#0f1923]/80 to-[#0f1923]/40" />
-          </div>
+    <section 
+      className="relative z-20 py-32 bg-[#2b275a] overflow-hidden -mt-[60px] pb-32"
+      style={{
+        clipPath: "polygon(0 60px, 35% 60px, 40% 0, 100% 0, 100% calc(100% - 60px), 15% calc(100% - 60px), 10% 100%, 0 100%)"
+      }}
+    >
+      <div className="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1614036634955-ae5e90f9cb9f?q=80&w=2000')] bg-cover bg-center"></div>
 
-          {/* Content */}
-          <div className="relative z-10 flex flex-col items-start justify-center py-20 lg:py-32">
-            <div className="max-w-xl px-8 lg:px-16">
-              <span className="mb-4 inline-block border border-[#ff4655] px-3 py-1 text-xs font-bold tracking-wider text-[#ff4655]">
-                EPISODE 8 // ACT III
-              </span>
-              <h2 className="mb-4 text-4xl font-black uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
-                NEW BATTLE
-                <br />
-                <span className="text-[#ff4655]">PASS</span>
-              </h2>
-              <p className="mb-8 text-[#ece8e1]/80">
-                Unlock exclusive skins, player cards, gun buddies, and more. The
-                new battle pass brings fresh content for all agents.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="flex items-center gap-2 bg-[#ff4655] px-8 py-4 text-sm font-bold tracking-wider text-white transition-all hover:bg-[#ff4655]/90 hover:scale-105">
-                  GET THE PASS
-                </button>
-                <button className="flex items-center gap-2 border-2 border-[#ece8e1]/30 px-8 py-4 text-sm font-bold tracking-wider text-[#ece8e1] transition-all hover:border-[#ff4655] hover:text-[#ff4655]">
-                  <Play className="h-4 w-4" />
-                  WATCH TRAILER
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Decorative Elements */}
-          <div className="absolute -right-20 top-1/2 hidden -translate-y-1/2 lg:block">
-            <div className="relative">
-              <div className="h-96 w-96 border-2 border-[#ff4655]/20 rotate-45" />
-              <div className="absolute inset-8 border-2 border-[#ff4655]/10 rotate-45" />
-            </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between">
+        
+        {/* Left Character Graphic (Iso Placeholder) */}
+        <div className="w-full lg:w-1/2 relative flex justify-center mb-10 lg:mb-0">
+          <div className="w-80 h-80 bg-gradient-to-tr from-purple-500/40 to-blue-500/40 border-4 border-white/20 transform rotate-12 flex items-center justify-center">
+             <div className="w-72 h-72 bg-gradient-to-tr from-purple-600 to-indigo-600 -rotate-12 flex items-center justify-center">
+                <img 
+                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000&auto=format&fit=crop" 
+                  alt="Iso Placeholder" 
+                  className="w-full h-full object-cover mix-blend-overlay"
+                />
+             </div>
           </div>
         </div>
+
+        {/* Right Content */}
+        <div className="w-full lg:w-1/2 text-right">
+          <p className="text-[#ff4655] font-bold tracking-[0.2em] text-sm mb-2 uppercase">
+            Episode 07 // Act III // YR 3
+          </p>
+          <h2 className="text-5xl md:text-8xl font-black text-[#ff4655] uppercase tracking-tighter mb-8 leading-none">
+            EVOLUTION
+          </h2>
+          
+          <div className="inline-block text-left bg-[#1f1a45]/80 p-8 backdrop-blur-sm max-w-md">
+            <h3 className="text-white text-2xl font-bold tracking-widest mb-2">+ ISO</h3>
+            <p className="text-white/60 font-bold tracking-[0.2em] text-xs mb-4">DUELIST // </p>
+            <p className="text-[#ece8e1]/80 text-sm mb-6 leading-relaxed">
+              Chinese fixer for hire, Iso falls into a flow state to dismantle the opposition. Reconfiguring ambient energy into bulletproof protection, he advances with focus towards his next duel to the death.
+            </p>
+            
+            <button className="bg-[#ff4655] text-white px-8 py-3 font-bold tracking-wider text-sm hover:bg-white hover:text-[#ff4655] transition-colors">
+              ACT SUMMARY
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );
