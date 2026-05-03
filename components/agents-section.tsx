@@ -1,7 +1,7 @@
 export function AgentsSection() {
   return (
     <section 
-      className="relative z-20 pt-40 pb-40 bg-[#e63946] overflow-hidden -mt-[80px]"
+      className="relative z-20 pt-40 pb-40 bg-[#FF66FF] overflow-hidden -mt-[80px]"
       style={{
         clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 80px), 25% calc(100% - 80px), 20% 100%, 0 100%)"
       }}
@@ -21,23 +21,23 @@ export function AgentsSection() {
                className="w-full h-full object-contain scale-105 group-hover:scale-110 transition-transform duration-700"
              />
              {/* Energy glow behind */}
-             <div className="absolute inset-0 bg-[#ff6a00] blur-[100px] opacity-40 mix-blend-screen -z-10 group-hover:opacity-60 transition-opacity"></div>
+             <div className="absolute inset-0 bg-[#C167FF] blur-[100px] opacity-40 mix-blend-screen -z-10 group-hover:opacity-60 transition-opacity"></div>
           </div>
         </div>
 
         {/* Right Text Content */}
         <div className="w-full md:w-1/2">
-          <h3 className="text-6xl md:text-8xl font-black text-[#f4f1eb] uppercase tracking-tighter mb-4 leading-none italic drop-shadow-[4px_4px_0_rgba(17,17,17,0.3)]">
+          <h3 className="text-6xl md:text-8xl font-black text-[#FDEEEB] uppercase tracking-tighter mb-4 leading-none italic drop-shadow-[4px_4px_0_rgba(17,17,17,0.3)]">
             TEAM <br/> SQUAD 7
           </h3>
-          <p className="text-[#111] font-black tracking-[0.2em] text-sm mb-6 uppercase bg-[#ff6a00] inline-block px-3 py-1 skew-x-[-10deg]">
+          <p className="text-[#07030A] font-black tracking-[0.2em] text-sm mb-6 uppercase bg-[#C167FF] inline-block px-3 py-1 skew-x-[-10deg]">
             <span className="skew-x-[10deg] block">CHAKRA CONTROL IS YOUR GREATEST WEAPON</span>
           </p>
           <p className="text-white/90 text-sm mb-10 max-w-md leading-relaxed font-bold">
             More than just kunai and shuriken, you'll choose a Shinobi armed with adaptive, swift, and lethal Kekkei Genkai that create opportunities to let your taijutsu shine. No two Shinobi fight alike, just as no two battles will look the same.
           </p>
           
-          <button className="bg-[#111] text-[#ff6a00] px-8 py-4 font-black tracking-wider text-sm hover:bg-white hover:text-[#e63946] transition-colors shadow-[5px_5px_0_rgba(255,106,0,1)] skew-x-[-10deg]">
+          <button className="bg-[#07030A] text-[#C167FF] px-8 py-4 font-black tracking-wider text-sm hover:bg-white hover:text-[#FF66FF] transition-colors shadow-[5px_5px_0_rgba(193,103,255,1)] skew-x-[-10deg]">
             <span className="skew-x-[10deg] block">VIEW ALL SHINOBI</span>
           </button>
         </div>
@@ -46,3 +46,4 @@ export function AgentsSection() {
     </section>
   );
 }
+

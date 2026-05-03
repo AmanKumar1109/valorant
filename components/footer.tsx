@@ -10,7 +10,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative z-0 bg-[#0a0a0a] text-[#f4f1eb] pt-32 pb-12 -mt-[60px] border-t-4 border-[#e63946]">
+    <footer className="relative z-0 bg-[#07030A] text-[#FDEEEB] pt-32 pb-12 -mt-[60px] border-t-4 border-[#FF66FF]">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542050893-13824bb8ba0a?q=80&w=2000')] opacity-10 mix-blend-screen pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -18,18 +18,18 @@ export function Footer() {
           
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="inline-block mb-6 group">
-              <h2 className="text-[#ff6a00] font-black tracking-tighter text-3xl uppercase italic drop-shadow-[0_0_10px_rgba(255,106,0,0.5)] group-hover:text-white transition-colors">
-                SHINOBI<span className="text-white group-hover:text-[#ff6a00] transition-colors">STRIKE</span>
+              <h2 className="text-[#C167FF] font-black tracking-tighter text-3xl uppercase italic drop-shadow-[0_0_10px_rgba(193,103,255,0.5)] group-hover:text-white transition-colors">
+                SHINOBI<span className="text-white group-hover:text-[#C167FF] transition-colors">STRIKE</span>
               </h2>
             </Link>
-            <p className="text-sm text-[#f4f1eb]/60 max-w-xs leading-relaxed font-bold">
+            <p className="text-sm text-[#FDEEEB]/60 max-w-xs leading-relaxed font-bold">
               An epic 5v5 shinobi tactical battle. Blend your elemental jutsu and combat experience on a global, competitive stage.
             </p>
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="col-span-1">
-              <h4 className="text-sm font-black tracking-widest text-[#e63946] uppercase mb-6 skew-x-[-5deg] inline-block">
+              <h4 className="text-sm font-black tracking-widest text-[#FF66FF] uppercase mb-6 skew-x-[-5deg] inline-block">
                 <span className="skew-x-[5deg] block">{category}</span>
               </h4>
               <ul className="flex flex-col gap-3">
@@ -37,7 +37,7 @@ export function Footer() {
                   <li key={link}>
                     <Link 
                       href="#" 
-                      className="text-sm font-bold text-[#f4f1eb]/60 hover:text-[#ff6a00] hover:translate-x-1 transition-all inline-block"
+                      className="text-sm font-bold text-[#FDEEEB]/60 hover:text-[#C167FF] hover:translate-x-1 transition-all inline-block"
                     >
                       {link}
                     </Link>
@@ -49,10 +49,10 @@ export function Footer() {
 
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#e63946]/30 gap-4 text-xs font-bold tracking-wider text-[#f4f1eb]/40">
+        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#FF66FF]/30 gap-4 text-xs font-bold tracking-wider text-[#FDEEEB]/40">
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-[#ff6a00] transition-colors">PRIVACY NOTICE</Link>
-            <Link href="#" className="hover:text-[#ff6a00] transition-colors">TERMS OF SERVICE</Link>
+            <Link href="#" className="hover:text-[#C167FF] transition-colors">PRIVACY NOTICE</Link>
+            <Link href="#" className="hover:text-[#C167FF] transition-colors">TERMS OF SERVICE</Link>
           </div>
           <p>&copy; 2026 Hidden Leaf Studio. Shinobi Strike and associated clan logos are trademarks.</p>
         </div>
@@ -60,3 +60,4 @@ export function Footer() {
     </footer>
   );
 }
+
