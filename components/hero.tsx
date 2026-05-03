@@ -3,60 +3,63 @@ import { Play } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#0f1923]">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#111]">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
-          alt="Valorant Background"
-          className="w-full h-full object-cover opacity-60"
+          src="/ninja_hero.png"
+          alt="Shinobi Strike Background"
+          className="w-full h-full object-cover opacity-70 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f1923] via-[#0f1923]/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f1923] via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111] via-[#111]/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent"></div>
+        {/* Glowing Orange Overlay */}
+        <div className="absolute inset-0 bg-[#ff6a00]/10 mix-blend-overlay"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold tracking-[0.2em] text-[#ece8e1] mb-4">
-            A 5V5 CHARACTER-BASED TACTICAL SHOOTER
+          <p className="text-sm font-bold tracking-[0.2em] text-[#ff6a00] mb-4 drop-shadow-[0_0_5px_rgba(255,106,0,0.8)]">
+            AN EPIC SHINOBI TACTICAL BATTLE
           </p>
-          <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-2">
-            YOUR AGENTS
+          <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-2 italic">
+            YOUR CHAKRA
           </h1>
-          <h1 className="text-6xl md:text-8xl font-black text-[#ff4655] leading-none tracking-tighter mb-8">
-            YOUR CALL
+          <h1 className="text-6xl md:text-8xl font-black text-[#ff6a00] leading-none tracking-tighter mb-8 italic drop-shadow-[0_0_15px_rgba(255,106,0,0.5)]">
+            YOUR PATH
           </h1>
-          <p className="text-lg text-[#ece8e1]/80 mb-10 max-w-lg leading-relaxed">
-            Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your side using sharp gunplay and tactical abilities. And, with one life per-round, you'll need to think faster than your opponent if you want to survive.
+          <p className="text-lg text-[#f4f1eb]/90 mb-10 max-w-lg leading-relaxed font-medium">
+            Find your ninja way on a global, competitive battlefield. Master elemental jutsu, summon allies, and use sharp kunai tactics. With one life per round, your strategy and willpower will determine the fate of your village.
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
-            <button className="relative group overflow-hidden">
-              <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0"></div>
-              <div className="relative bg-[#ff4655] text-white group-hover:text-[#0f1923] px-8 py-4 font-bold tracking-wider transition-colors duration-300">
-                PLAY FREE
+            <button className="relative group overflow-hidden skew-x-[-10deg]">
+              <div className="absolute inset-0 bg-white translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></div>
+              <div className="relative bg-[#ff6a00] text-white group-hover:text-[#111] px-10 py-5 font-black tracking-widest transition-colors duration-300 skew-x-[10deg] block">
+                ENTER COMBAT
               </div>
-              <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-white opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </button>
 
-            <button className="flex items-center gap-3 px-8 py-4 border border-[#ece8e1]/30 text-[#ece8e1] hover:bg-[#ece8e1]/10 transition-colors font-bold tracking-wider">
-              <Play className="w-4 h-4 fill-current" />
-              WATCH TRAILER
+            <button className="flex items-center gap-3 px-8 py-4 border-2 border-[#ff6a00]/50 text-[#f4f1eb] hover:bg-[#ff6a00]/20 hover:border-[#ff6a00] transition-all font-bold tracking-wider group skew-x-[-10deg]">
+              <div className="skew-x-[10deg] flex items-center gap-3">
+                <Play className="w-4 h-4 fill-current text-[#ff6a00] group-hover:drop-shadow-[0_0_8px_rgba(255,106,0,0.8)]" />
+                WATCH TRAILER
+              </div>
             </button>
           </div>
         </div>
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <div className="w-[1px] h-12 bg-white"></div>
-        <span className="text-xs font-mono tracking-widest text-white rotate-90 my-4">SCROLL</span>
-        <div className="w-[1px] h-12 bg-white"></div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+        <div className="w-[2px] h-12 bg-gradient-to-b from-transparent to-[#ff6a00]"></div>
+        <span className="text-xs font-black tracking-widest text-[#ff6a00] rotate-90 my-6">SCROLL</span>
+        <div className="w-[2px] h-12 bg-gradient-to-t from-transparent to-[#ff6a00]"></div>
       </div>
       
-      <div className="absolute top-1/4 right-10 w-24 h-24 border border-white/10 rotate-45 hidden lg:block"></div>
-      <div className="absolute bottom-1/4 right-32 w-16 h-16 border border-[#ff4655]/20 rotate-12 hidden lg:block"></div>
+      {/* Flying Kunai / Shuriken decors */}
+      <div className="absolute top-1/4 right-10 w-24 h-24 border border-[#ff6a00]/30 rotate-45 hidden lg:block animate-spin-slow"></div>
+      <div className="absolute bottom-1/4 right-32 w-16 h-16 border border-[#e63946]/40 rotate-12 hidden lg:block"></div>
     </section>
   );
 }
