@@ -1,66 +1,142 @@
+﻿"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Play } from "lucide-react";
+import { Download, Zap } from "lucide-react";
 
 export function Hero() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const target = new Date("2026-05-14T09:00:00+05:30").getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const difference = target - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      } else {
+        clearInterval(interval);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const countdownItems = [
+    { label: "DAYS", value: timeLeft.days },
+    { label: "HRS", value: timeLeft.hours },
+    { label: "MINS", value: timeLeft.minutes },
+    { label: "SECS", value: timeLeft.seconds },
+  ];
+
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#07030A]">
-      {/* Background Image & Overlay */}
+    <section
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+      style={{ backgroundColor: "var(--color-bg-base)" }}
+      id="hero"
+    >
       <div className="absolute inset-0 z-0">
         <img
           src="/ninja_hero.png"
-          alt="Shinobi Strike Background"
-          className="w-full h-full object-cover opacity-70 scale-105 animate-[pulse_10s_ease-in-out_infinite]"
+          alt="Infinite Realms"
+          className="w-full h-full object-cover opacity-30 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07030A] via-[#07030A]/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#07030A] via-transparent to-transparent"></div>
-        {/* Glowing Orange Overlay */}
-        <div className="absolute inset-0 bg-[#C167FF]/10 mix-blend-overlay"></div>
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, var(--color-bg-base), rgba(5,5,5,0.5), var(--color-bg-base))" }}></div>
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(193,103,255,0.1), transparent)" }}></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-bold tracking-[0.2em] text-[#C167FF] mb-4 drop-shadow-[0_0_5px_rgba(193,103,255,0.8)]">
-            AN EPIC SHINOBI TACTICAL BATTLE
-          </p>
-          <h1 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter mb-2 italic">
-            YOUR CHAKRA
-          </h1>
-          <h1 className="text-6xl md:text-8xl font-black text-[#c167ff] leading-none tracking-tighter mb-8 italic drop-shadow-[0_0_15px_rgba(193,103,255,0.5)]">
-            YOUR PATH
-          </h1>
-          <p className="text-lg text-[#FDEEEB]/90 mb-10 max-w-lg leading-relaxed font-medium">
-            Find your ninja way on a global, competitive battlefield. Master elemental jutsu, summon allies, and use sharp kunai tactics. With one life per round, your strategy and willpower will determine the fate of your village.
-          </p>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 text-center flex flex-col items-center">
 
-          <div className="flex flex-wrap items-center gap-6">
-            <button className="relative group overflow-hidden skew-x-[-10deg]">
-              <div className="absolute inset-0 bg-white translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0"></div>
-              <div className="relative bg-[#C167FF] text-white group-hover:text-[#07030A] px-10 py-5 font-black tracking-widest transition-colors duration-300 skew-x-[10deg] block">
-                ENTER COMBAT
-              </div>
-            </button>
-
-            <button className="flex items-center gap-3 px-8 py-4 border-2 border-[#C167FF]/50 text-[#FDEEEB] hover:bg-[#C167FF]/20 hover:border-[#C167FF] transition-all font-bold tracking-wider group skew-x-[-10deg]">
-              <div className="skew-x-[10deg] flex items-center gap-3">
-                <Play className="w-4 h-4 fill-current text-[#C167FF] group-hover:drop-shadow-[0_0_8px_rgba(193,103,255,0.8)]" />
-                WATCH TRAILER
-              </div>
-            </button>
-          </div>
+        <div className="inline-flex items-center gap-3 px-4 py-1.5 mb-8 rounded-full"
+          style={{ border: "1px solid rgba(193,103,255,0.3)", background: "rgba(193,103,255,0.1)", backdropFilter: "blur(8px)" }}>
+          <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "var(--color-accent)" }}></span>
+          <span className="text-xs md:text-sm font-bold tracking-widest uppercase" style={{ color: "var(--color-primary)" }}>
+            PROVENANCE 6.0 - MAY 14-15 - RVSCET
+          </span>
         </div>
+
+        <div className="mb-6">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tighter italic uppercase"
+            style={{ color: "var(--color-text-primary)", textShadow: "0 0 20px rgba(193,103,255,0.4)" }}>
+            INFINITE REALMS
+          </h1>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-none tracking-tighter italic uppercase mt-2"
+            style={{ background: "linear-gradient(to right, var(--color-primary), var(--color-accent))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            THE ANIME PROTOCOL
+          </h2>
+        </div>
+
+        <p className="text-lg md:text-xl mb-3 max-w-2xl font-medium leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+          A multi-club inter-college fest powered by Helix v2.0
+        </p>
+
+        <div className="flex items-center justify-center gap-4 text-sm mb-12" style={{ color: "var(--color-text-muted)" }}>
+          <span>5 Clubs</span>
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(193,103,255,0.5)" }}></span>
+          <span>30+ Events</span>
+          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(193,103,255,0.5)" }}></span>
+          <span className="font-bold" style={{ color: "var(--color-accent)" }}>Rs. 2,00,000+ Prize Pool</span>
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center gap-6 mb-16">
+          <Link href="/register" className="block">
+            <div className="flex items-center gap-3 px-10 py-4 font-black text-lg tracking-widest uppercase"
+              style={{
+                clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)",
+                background: "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                color: "var(--color-bg-base)",
+              }}>
+              <Zap className="w-5 h-5" />
+              REGISTER NOW
+            </div>
+          </Link>
+
+          <Link href="/brochure.pdf" className="block">
+            <div className="flex items-center gap-3 px-10 py-4 font-black text-lg tracking-widest uppercase"
+              style={{
+                clipPath: "polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)",
+                border: "1px solid var(--color-border-active)",
+                color: "var(--color-text-primary)",
+              }}>
+              <Download className="w-5 h-5" />
+              DOWNLOAD BROCHURE
+            </div>
+          </Link>
+        </div>
+
+        <div className="flex items-center justify-center gap-4 md:gap-8 p-6"
+          style={{
+            clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+            backdropFilter: "blur(12px)",
+            background: "rgba(13,13,26,0.6)",
+            border: "1px solid rgba(193,103,255,0.2)",
+          }}>
+          {countdownItems.map((item, i) => (
+            <div key={i} className="flex flex-col items-center" style={{ minWidth: "60px" }}>
+              <span className="text-3xl md:text-5xl font-bold" style={{ color: "var(--color-text-primary)", textShadow: "0 0 10px rgba(193,103,255,0.5)" }}>
+                {item.value.toString().padStart(2, "0")}
+              </span>
+              <span className="mt-2 uppercase" style={{ fontSize: "10px", color: "var(--color-text-muted)", letterSpacing: "0.2em" }}>
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
-        <div className="w-[2px] h-12 bg-gradient-to-b from-transparent to-[#C167FF]"></div>
-        <span className="text-xs font-black tracking-widest text-[#C167FF] rotate-90 my-6">SCROLL</span>
-        <div className="w-[2px] h-12 bg-gradient-to-t from-transparent to-[#C167FF]"></div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+        <div className="w-px h-12" style={{ background: "linear-gradient(to bottom, transparent, var(--color-primary))" }}></div>
+        <span className="font-bold tracking-widest uppercase my-6" style={{ fontSize: "10px", color: "var(--color-primary)", writingMode: "vertical-rl" }}>SCROLL</span>
+        <div className="w-px h-12" style={{ background: "linear-gradient(to top, transparent, var(--color-primary))" }}></div>
       </div>
-      
-      {/* Flying Kunai / Shuriken decors */}
-      <div className="absolute top-1/4 right-10 w-24 h-24 border border-[#C167FF]/30 rotate-45 hidden lg:block animate-spin-slow"></div>
-      <div className="absolute bottom-1/4 right-32 w-16 h-16 border border-[#FF66FF]/40 rotate-12 hidden lg:block"></div>
     </section>
   );
 }
-

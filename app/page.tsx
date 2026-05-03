@@ -1,22 +1,16 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { LatestArticles } from "@/components/latest-articles";
-import { FeatureBanner } from "@/components/feature-banner";
-import { WeAreValorant } from "@/components/we-are-valorant";
-import { AgentsSection } from "@/components/agents-section";
-import { MapSection } from "@/components/map-section";
+import { ClubsGrid } from "@/components/clubs-grid";
+import { EventPool } from "@/components/event-pool";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0f1923]">
+    <main className="min-h-screen bg-bg-base text-text-primary">
       <Navbar />
       <Hero />
-      <LatestArticles />
-      <FeatureBanner />
-      <WeAreValorant />
-      <AgentsSection />
-      <MapSection />
+      <ClubsGrid />
+      <EventPool />
       <Footer />
     </main>
   );

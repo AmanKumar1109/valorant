@@ -1,63 +1,78 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import { Instagram, Linkedin, Github } from "lucide-react";
 
 export function Footer() {
-  const footerLinks = {
-    GAME: ["Download", "Patch Notes", "News", "Media", "Support"],
-    SHINOBI: ["Characters", "Villages", "Ninja Tools", "Clans"],
-    ESPORTS: ["Chunin Exams", "Jonin Draft", "Global Standings", "Tournaments"],
-    SUPPORT: ["Specs", "Submit a Scroll", "Privacy Policy", "Terms of Service"],
-    SOCIALS: ["Twitter", "Instagram", "YouTube", "Twitch", "Discord"],
-  };
+  const quickLinks = ["Events", "Schedule", "Gallery", "Register"];
+  const socials = [
+    { icon: Instagram, href: "#" },
+    { icon: Linkedin, href: "#" },
+    { icon: Github, href: "#" },
+  ];
 
   return (
-    <footer className="relative z-0 bg-[#07030A] text-[#FDEEEB] pt-32 pb-12 -mt-[60px] border-t-4 border-[#FF66FF]">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542050893-13824bb8ba0a?q=80&w=2000')] opacity-10 mix-blend-screen pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
-          
-          <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="inline-block mb-6 group">
-              <h2 className="text-[#C167FF] font-black tracking-tighter text-3xl uppercase italic drop-shadow-[0_0_10px_rgba(193,103,255,0.5)] group-hover:text-white transition-colors">
-                SHINOBI<span className="text-white group-hover:text-[#C167FF] transition-colors">STRIKE</span>
-              </h2>
+    <footer style={{ backgroundColor: "var(--color-bg-base)", borderTop: "1px solid var(--color-border-subtle)" }} className="pt-20 pb-10 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <Link href="/" className="inline-block mb-6">
+              <span className="text-3xl font-black tracking-widest uppercase" style={{ color: "var(--color-text-primary)" }}>
+                PROVENANCE<span style={{ color: "var(--color-primary)" }}>6.0</span>
+              </span>
             </Link>
-            <p className="text-sm text-[#FDEEEB]/60 max-w-xs leading-relaxed font-bold">
-              An epic 5v5 shinobi tactical battle. Blend your elemental jutsu and combat experience on a global, competitive stage.
+            <p className="text-lg font-bold uppercase tracking-widest mb-2" style={{ color: "var(--color-text-primary)" }}>
+              Infinite Realms
             </p>
+            <p className="text-sm mb-8 uppercase tracking-widest" style={{ color: "var(--color-text-muted)" }}>
+              Helix v2.0 x RVSCET
+            </p>
+            <p className="text-sm mb-4" style={{ color: "var(--color-text-secondary)" }}>
+              Contact:{" "}
+              <a href="mailto:helix@rvscet.ac.in" className="transition-colors hover:opacity-80" style={{ color: "var(--color-primary)" }}>
+                helix@rvscet.ac.in
+              </a>
+            </p>
+            <div className="flex items-center gap-4">
+              {socials.map(({ icon: Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all hover:opacity-80"
+                  style={{ border: "1px solid var(--color-border-subtle)", color: "var(--color-text-secondary)" }}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="col-span-1">
-              <h4 className="text-sm font-black tracking-widest text-[#FF66FF] uppercase mb-6 skew-x-[-5deg] inline-block">
-                <span className="skew-x-[5deg] block">{category}</span>
-              </h4>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <Link 
-                      href="#" 
-                      className="text-sm font-bold text-[#FDEEEB]/60 hover:text-[#C167FF] hover:translate-x-1 transition-all inline-block"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
+          <div className="md:text-right">
+            <h4 className="text-sm font-bold tracking-widest uppercase mb-6" style={{ color: "var(--color-text-primary)" }}>Quick Links</h4>
+            <nav className="flex flex-col gap-4 items-start md:items-end">
+              {quickLinks.map((link) => (
+                <Link
+                  key={link}
+                  href={`#${link.toLowerCase()}`}
+                  className="text-sm font-medium uppercase tracking-widest transition-colors hover:opacity-80"
+                  style={{ color: "var(--color-text-secondary)" }}
+                >
+                  {link}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-[#FF66FF]/30 gap-4 text-xs font-bold tracking-wider text-[#FDEEEB]/40">
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-[#C167FF] transition-colors">PRIVACY NOTICE</Link>
-            <Link href="#" className="hover:text-[#C167FF] transition-colors">TERMS OF SERVICE</Link>
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: "1px solid var(--color-border-subtle)" }}>
+          <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+            &copy; 2026 Helix v2.0, RVSCET. Built by the Web Team.
+          </p>
+          <div className="flex gap-4">
+            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(193,103,255,0.5)" }}></div>
+            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(255,102,255,0.5)" }}></div>
+            <div className="w-1 h-1 rounded-full" style={{ background: "rgba(159,138,255,0.5)" }}></div>
           </div>
-          <p>&copy; 2026 Hidden Leaf Studio. Shinobi Strike and associated clan logos are trademarks.</p>
         </div>
       </div>
     </footer>
   );
 }
-
